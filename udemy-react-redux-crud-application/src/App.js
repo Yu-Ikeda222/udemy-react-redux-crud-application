@@ -1,9 +1,7 @@
 
-
 function App() {
-  return (
-    <div>hello world</div>
-  );
+    return <input type="button" onClick={() => {console.log("iaiaiaiai")}} ></input>;
+
 }
 
 export default App;
