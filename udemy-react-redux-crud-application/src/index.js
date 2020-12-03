@@ -6,14 +6,21 @@ import thunk from 'redux-thunk'
 import './index.css';
 import reducer from './reducers'
 import EventsIndex from './components/events_index';
+import EventsNew from './components/events_new';
 import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <EventsIndex />
+      <BrowserRouter>
+      <Switch>
+        <Route exact path="/events/new" component={EventsNew}></Route>
+        <Route exact path="/" component={EventsIndex}></Route>
+      </Switch>
+      </BrowserRouter>
+    
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
