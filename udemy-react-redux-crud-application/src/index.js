@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './index.css';
 import reducer from './reducers'
 import EventsIndex from './components/events_index';
@@ -17,6 +18,7 @@ composeWithDevTools(applyMiddleware(thunk)) : applyMiddleware(thunk)
 const store = createStore(reducer, enhancer)
 
 ReactDOM.render(
+  <MuiThemeProvider>
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -29,7 +31,8 @@ ReactDOM.render(
       </BrowserRouter>
     
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 
